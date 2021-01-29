@@ -1,40 +1,52 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script> 
-    <script src="http://malsup.github.com/jquery.form.js"></script> 
- 
-    <script> 
-        // wait for the DOM to be loaded 
-        $(document).ready(function() { 
-            // bind 'myForm' and provide a simple callback function 
-            $('#myForm').ajaxForm(function() { 
-                alert("Thank you for your comment!"); 
-            }); 
-        }); 
-    </script> 
-  </head>
+
+<head>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
+  <script src="http://malsup.github.com/jquery.form.js"></script>
+
+  <script>
+    // wait for the DOM to be loaded 
+    $(document).ready(function () {
+      // bind 'myForm' and provide a simple callback function 
+      $('#myForm').ajaxForm(function () {
+        alert("Thank you for your comment!");
+      });
+    });
+
+    $(function () {
+      $(".classloader").click(function () {
+        $("#contenthere").load("/includes/about-info.html");
+      });
+    });
+  </script>
+</head>
+
 <body>
 
   <h2>jquery html forms</h2>
 
-  <form id="myForm" action="comment.php" method="post"> 
-    Name: <input type="text" name="name" /> 
-    Comment: <textarea name="comment"></textarea> 
-    <input type="submit" value="Submit Comment" /> 
+  <form id="myForm" action="comment.php" method="post">
+    Name: <input type="text" name="name" />
+    Comment: <textarea name="comment"></textarea>
+    <input type="submit" value="Submit Comment" />
   </form>
 
-<h2>HTML Forms</h2>
+  <h2>HTML Forms</h2>
 
-<form action="/action_page.php">
-  <label for="fname">First name:</label><br>
-  <input type="text" id="fname" name="fname" value="John"><br>
-  <label for="lname">Last name:</label><br>
-  <input type="text" id="lname" name="lname" value="Doe"><br><br>
-  <input type="submit" value="Submit">
-</form> 
+  <form action="/action_page.php">
+    <label for="fname">First name:</label><br>
+    <input type="text" id="fname" name="fname" value="John"><br>
+    <label for="lname">Last name:</label><br>
+    <input type="text" id="lname" name="lname" value="Doe"><br><br>
+    <input type="submit" value="Submit">
+  </form>
 
-<p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
+  <p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
+
+  <button class="classloader">Click Here</button>
+  <div id="contenthere"></div>
 
 </body>
+
 </html>
